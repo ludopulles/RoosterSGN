@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- names -->
+    <string name="app_name">RoosterSGN</string>
+    <string name="widget_name">Rooster SGN</string>
+    <string name="service_name">Rooster Service</string>
+    <!-- general -->
+    <string name="ok">OK</string>
+    <string name="cancel">Annuleren</string>
+    <!-- changes -->
+    <string name="changes_singular">Er is 1 wijziging</string>
+    <string name="changes_plural">Er zijn %d wijzigingen</string>
+    <string name="changes_one_hour">%1$s het %2$de uur</string>
+    <string name="changes_more_than_one_hour">%1$s het %2$s uur</string>
+    <!-- date activity -->
+    <string name="date_ok">OK</string>
+    <string name="date_today">Vandaag</string>
+    <string name="date_back">Terug</string>
+    <!-- sign in activity -->
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="wrong_password">Wachtwoord is incorrect</string>
+    <!-- widget -->
+    <string name="widget_no_user">onbekende gebruiker</string>
+    <string name="widget_no_timetable">geen rooster</string>
+    <string name="widget_wrong_password">incorrect wachtwoord</string>
+    <!-- load exceptions -->
+    <string name="exception_internet">Het laden is mislukt. Controleer je internetverbinding</string>
+    <string name="exception_json">De server gaf iets onleesbaars terug.</string>
+    <string name="exception_timetable">Het rooster kon niet gelezen worden.</string>
+    <string name="exception_server_unknown">De server gaf een verkeerd antwoord terug.</string>
+
+</resources>

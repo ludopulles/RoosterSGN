@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/free_period"
+    android:orientation="horizontal"
+    android:paddingBottom="2.5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="2.5dp" >
+
+    <TextView
+        android:id="@+id/widget_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:textColor="#000000"
+        android:textSize="@dimen/widget_text_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_free"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="@dimen/widget_text_size"
+        android:textStyle="bold" />
+
+</LinearLayout>

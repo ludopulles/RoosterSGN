@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/content_padding" >
+
+    <LinearLayout
+        android:id="@+id/spinners"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <eu.ludiq.sgn.rooster.ui.AbstractSpinner
+            android:id="@+id/day_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.5" >
+
+            <EditText
+                android:id="@+id/day_edit_text"
+                style="@style/date_edit_text"
+                android:gravity="center"
+                android:inputType="number" />
+        </eu.ludiq.sgn.rooster.ui.AbstractSpinner>
+
+        <eu.ludiq.sgn.rooster.ui.AbstractSpinner
+            android:id="@+id/month_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" >
+
+            <EditText
+                android:id="@+id/month_edit_text"
+                style="@style/date_edit_text"
+                android:gravity="center"
+                android:inputType="text" />
+        </eu.ludiq.sgn.rooster.ui.AbstractSpinner>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/date_preview_size" />
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:weightSum="3" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:onClick="buttonCancel"
+            android:text="@string/date_back" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/button_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:onClick="buttonVandaag"
+            android:text="@string/date_today" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:onClick="buttonOK"
+            android:text="@string/date_ok" />
+    </LinearLayout>
+
+</LinearLayout>

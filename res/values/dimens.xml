@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="content_padding">		10dp</dimen>
+    <!-- period sizes -->
+    <dimen name="period_padding">6dp</dimen>
+    <dimen name="period_hour_padding">8dp</dimen>
+    <!-- text sizes -->
+    <dimen name="date_preview_size">	18sp</dimen>
+    <dimen name="widget_header_text_size">	10sp</dimen>
+    <dimen name="widget_text_size">		10.5sp</dimen>
+    <!-- widget -->
+    <dimen name="widget_margin">3dp</dimen>
+    <dimen name="widget_border">0.5dp</dimen>
+    <dimen name="widget_border_radius">1dp</dimen>
+    <dimen name="widget_header_padding">2dp</dimen>
+    <!-- button -->
+    <dimen name="button_margin">		6dp</dimen>
+    <dimen name="button_corner_radius">	2dp</dimen>
+    <dimen name="button_padding">		8dp</dimen>
+
+</resources>

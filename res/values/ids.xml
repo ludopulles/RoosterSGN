@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- timetable.xml -->
+    <item name="menu_view" type="id"/>
+    <item name="date_view" type="id"/>
+    <item name="view_flipper" type="id"/>
+    <item name="changes" type="id"/>
+
+</resources>

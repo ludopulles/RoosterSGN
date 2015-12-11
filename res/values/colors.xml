@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- theme colors -->
+    <color name="sgn_orange">			#f79c0c</color>
+    <color name="sgn_blue">				#0f2645</color>
+    <color name="sgn_light_blue">		#1c477f</color>
+    <color name="free_period">			#22888888</color>
+    <color name="widget_divider">		#888888bb</color>
+    <!-- menu view -->
+    <color name="menu_background">		#dddddd</color>
+    <color name="menu_button_active">	#bb367edb</color>
+    <color name="menu_border_bottom2">	#d2d2d2</color>
+    <color name="menu_border_bottom1">	#acacac</color>
+    <!-- sign in -->
+    <color name="wrong_password">		#880000</color>
+    <!-- date -->
+    <color name="date_edit_text">		#dddddd</color>
+    <color name="date_edit_text_border">#bbbbbb</color>
+    <!-- changes bar -->
+    <color name="changes_bar_default">	#0f2645</color>
+    <color name="changes_bar_pressed">	#1c477f</color>
+    <color name="changes_bar_text">		#f8f8f8</color>
+    <!-- widget colors -->
+    <color name="widget_header">		#0f2645</color>
+    <color name="widget_header_text">	#f8f8f8</color>
+    <color name="widget_border">		#0f2645</color>
+    <color name="widget_background">	#f8f8f8</color>
+    <!-- button theme -->
+    <color name="button_border_color">	#bbbbbb</color>
+    <color name="button_top">			#ebebeb</color>
+    <color name="button_bottom">		#e0e0e0</color>
+    <color name="button_active_top">	#f9b639</color>
+    <color name="button_active_bottom">	#f7ae27</color>
+
+</resources>
