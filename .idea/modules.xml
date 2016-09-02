@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RoosterSGNAppCopy.iml" filepath="$PROJECT_DIR$/RoosterSGNAppCopy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RoosterSGN.iml" filepath="$PROJECT_DIR$/RoosterSGN.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
