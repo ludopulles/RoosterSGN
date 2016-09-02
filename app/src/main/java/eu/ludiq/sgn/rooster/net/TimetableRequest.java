@@ -32,7 +32,7 @@ public class TimetableRequest extends HttpRequest implements HttpCallback {
 		super();
 		this.mContext = context;
 		setUserAgent(userAgent(context));
-		setUrl("http://ludiq.eu/services/index.php");
+		setUrl("http://christiaangoossens.nl/rooster/get.php");
 		addCallback(this);
 	}
 
