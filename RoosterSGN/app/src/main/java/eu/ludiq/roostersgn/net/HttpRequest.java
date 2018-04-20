@@ -1,18 +1,20 @@
 package eu.ludiq.roostersgn.net;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import eu.ludiq.roostersgn.exception.ServerException;
 import eu.ludiq.roostersgn.exception.WrongPasswordException;
 import eu.ludiq.roostersgn.rooster.Timetable;
@@ -30,8 +32,8 @@ public class HttpRequest {
 	private Handler mHandler;
 	private String mUrl = "", mUserAgent = "";
 	private List<HttpCallback> mCallbacks = new ArrayList<HttpCallback>();
-	private List<BasicNameValuePair> mParameters = new ArrayList<BasicNameValuePair>();
-	private HttpClient mHttpClient = null;
+	private HashMap<String, String> mParameters = new HashMap<String, String>();
+	private HttpURLConnection mConnection = null;
 	private volatile boolean mStop = false;
 
 	public HttpRequest() {
@@ -55,8 +57,8 @@ public class HttpRequest {
 		this.mParameters.clear();
 	}
 
-	public void addParameter(BasicNameValuePair parameter) {
-		this.mParameters.add(parameter);
+	public void addParameter(String key, String value) {
+		this.mParameters.put(key, value);
 	}
 
 	public void setUrl(String url) {
@@ -73,9 +75,9 @@ public class HttpRequest {
 			public void run() {
 				if (!mStop) {
 					mStop = true;
-					if (mHttpClient != null) {
+					if (mConnection != null) {
 						Log.w(TAG, "Shutting down http request!");
-						mHttpClient.getConnectionManager().shutdown();
+						mConnection.disconnect();
 					}
 				}
 			}
@@ -90,12 +92,16 @@ public class HttpRequest {
 		}, "Http request thread").start();
 	}
 
+	/**
+	 * Runs the request, but this should be called from a different thread than the UI thread
+	 * because the UI thread is not allowed to be blocking.
+	 */
 	private void _request() {
-		mHttpClient = HttpUtils.createHttpClient();
-
 		try {
-			String str = HttpUtils.getContent(mHttpClient, mUrl, mUserAgent,
-					mParameters);
+			URL url = new URL(mUrl);
+			mConnection = (HttpURLConnection) url.openConnection();
+
+			String str = HttpUtils.getContent(mConnection, mParameters);
 			JSONObject object = new JSONObject(str);
 
 			try {
@@ -134,6 +140,5 @@ public class HttpRequest {
 			mHandler.sendMessage(mHandler.obtainMessage(
 					HttpUtils.ERROR_PARSING, e));
 		}
-
 	}
 }
