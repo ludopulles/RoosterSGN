@@ -9,6 +9,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 
 import eu.ludiq.roostersgn.net.HttpCallback;
@@ -20,9 +21,8 @@ import eu.ludiq.roostersgn.util.DataStorage;
  * A class for keeping the saved timetable up-to-date. If this runnable is run,
  * it will load the timetable, compare it with the last loaded timetable, and
  * decides whether or not to show a notification about new changes.
- * 
+ *
  * @author Ludo Pulles
- * 
  */
 public class TimetableSyncer implements Runnable, HttpCallback {
 
@@ -77,10 +77,8 @@ public class TimetableSyncer implements Runnable, HttpCallback {
 	}
 
 	/**
-	 * @param changes
-	 *            has to be not NULL and a bigger length than 0
-	 * @param oldChanges
-	 *            the changes of the latest rooster
+	 * @param changes    has to be not NULL and a bigger length than 0
+	 * @param oldChanges the changes of the latest rooster
 	 * @return whether there are differences between the two arrays of changes
 	 */
 	private boolean isDifferent(String[] changes, String[] oldChanges) {
@@ -105,16 +103,16 @@ public class TimetableSyncer implements Runnable, HttpCallback {
 
 	/**
 	 * Shows a notification to the user when useful.
-	 * 
-	 * @param changes
-	 *            the current changes made to the timetable
-	 * @param oldChanges
-	 *            the changes the last timetable had
+	 *
+	 * @param changes    the current changes made to the timetable
+	 * @param oldChanges the changes the last timetable had
 	 */
-	@SuppressWarnings("deprecation")
 	private void notifyUser(String[] changes, String[] oldChanges) {
 		NotificationManager manager = (NotificationManager) context
 				.getSystemService(SyncService.NOTIFICATION_SERVICE);
+		if (manager == null)
+			return;
+
 		if (changes == null || changes.length == 0) {
 			manager.cancel(0);
 		} else if (isDifferent(changes, oldChanges)) {
@@ -133,17 +131,28 @@ public class TimetableSyncer implements Runnable, HttpCallback {
 					new Intent(context, SignInActivity.class),
 					PendingIntent.FLAG_UPDATE_CURRENT);
 
-			Notification notification = new Notification(
-					R.drawable.ic_launcher, title, System.currentTimeMillis());
-			notification.flags |= Notification.FLAG_AUTO_CANCEL;
-			notification.setLatestEventInfo(context, title, desc, pending);
+			Notification.Builder builder = new Notification.Builder(context);
+			builder.setSmallIcon(R.mipmap.ic_launcher);
+			builder.setAutoCancel(false);
+			builder.setOngoing(false);
 
+			builder.setTicker(title);
+			builder.setContentTitle(title);
+			builder.setContentText(desc);
+			builder.setContentIntent(pending);
+			builder.setNumber(changes.length);
+
+			Notification notification;
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+				notification = builder.build();
+			else
+				notification = builder.getNotification();
 			manager.notify(0, notification);
 		}
 	}
 
 	private int toDayNumber(String day) {
-		String[] days = new String[] { "ma", "di", "wo", "do", "vr" };
+		String[] days = new String[]{"ma", "di", "wo", "do", "vr"};
 		for (int i = 0; i < days.length; i++) {
 			if (days[i].equalsIgnoreCase(day)) {
 				return i;
@@ -175,7 +184,7 @@ public class TimetableSyncer implements Runnable, HttpCallback {
 
 	/**
 	 * Returns a description that suits with the changes
-	 * 
+	 *
 	 * @param changes
 	 * @return a description of the changes
 	 */
