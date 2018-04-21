@@ -3,14 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <eu.ludiq.roostersgn.ui.MenuView
+    <eu.ludiq.sgn.rooster.ui.MenuView
         android:id="@id/menu_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:background="@color/menu_background" />
 
-    <eu.ludiq.roostersgn.ui.DateView
+    <eu.ludiq.sgn.rooster.ui.DateView
         android:id="@id/date_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:textColor="@color/changes_bar_text"
         android:visibility="gone" />
 
-    <eu.ludiq.roostersgn.scroll.ViewFlipperCompat
+    <eu.ludiq.sgn.rooster.scroll.ViewFlipperCompat
         android:id="@id/view_flipper"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

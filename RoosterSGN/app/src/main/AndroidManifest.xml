@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="eu.ludiq.roostersgn">
+    package="eu.ludiq.sgn.rooster">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -25,7 +25,7 @@
         </activity>
         <activity android:name=".ChangesActivity" >
         </activity>
-        <activity android:name="eu.ludiq.roostersgn.debug.CrashActivity" >
+        <activity android:name="eu.ludiq.sgn.rooster.debug.CrashActivity" >
         </activity>
 
         <service android:name="SyncService" >

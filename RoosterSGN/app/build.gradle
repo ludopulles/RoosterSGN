@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "eu.ludiq.roostersgn"
+        applicationId "eu.ludiq.sgn.rooster"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 10

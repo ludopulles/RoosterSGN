@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <eu.ludiq.roostersgn.ui.AbstractSpinner
+        <eu.ludiq.sgn.rooster.ui.AbstractSpinner
             android:id="@+id/day_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -23,9 +23,9 @@
                 style="@style/date_edit_text"
                 android:gravity="center"
                 android:inputType="number" />
-        </eu.ludiq.roostersgn.ui.AbstractSpinner>
+        </eu.ludiq.sgn.rooster.ui.AbstractSpinner>
 
-        <eu.ludiq.roostersgn.ui.AbstractSpinner
+        <eu.ludiq.sgn.rooster.ui.AbstractSpinner
             android:id="@+id/month_spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 style="@style/date_edit_text"
                 android:gravity="center"
                 android:inputType="text" />
-        </eu.ludiq.roostersgn.ui.AbstractSpinner>
+        </eu.ludiq.sgn.rooster.ui.AbstractSpinner>
     </LinearLayout>
 
     <TextView
